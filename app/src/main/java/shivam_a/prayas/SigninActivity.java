@@ -35,7 +35,10 @@ public class SigninActivity  extends AsyncTask{
     }
 
     @Override
-    protected String doInBackground(String... arg0) {
+    protected String doInBackground(Object... arg1) {
+
+        String arg0[]=(String[]) arg1;
+
         if(byGetOrPost == 0){ //means by Get Method
 
             try{
@@ -104,8 +107,8 @@ public class SigninActivity  extends AsyncTask{
     }
 
     @Override
-    protected void onPostExecute(String result){
+    protected void onPostExecute(Object result){
         this.statusField.setText("Login Successful");
-        this.roleField.setText(result);
+        this.roleField.setText((String)result);
     }
 }
