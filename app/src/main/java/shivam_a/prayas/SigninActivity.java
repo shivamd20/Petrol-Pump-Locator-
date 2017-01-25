@@ -1,22 +1,23 @@
 package shivam_a.prayas;
 
-
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.URI;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
+        import java.io.InputStreamReader;
+        import java.io.OutputStreamWriter;
+        import java.net.URI;
+        import java.net.URL;
+        import java.net.URLConnection;
+        import java.net.URLEncoder;
+
+
+        import android.content.Context;
+        import android.os.AsyncTask;
+        import android.widget.TextView;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import android.content.Context;
-import android.os.AsyncTask;
-import android.widget.TextView;
 
 public class SigninActivity  extends AsyncTask{
     private TextView statusField,roleField;
@@ -35,10 +36,7 @@ public class SigninActivity  extends AsyncTask{
     }
 
     @Override
-    protected String doInBackground(Object... arg1) {
-
-        String arg0[]=(String[]) arg1;
-
+    protected String doInBackground(Object... arg0) {
         if(byGetOrPost == 0){ //means by Get Method
 
             try{
@@ -50,6 +48,7 @@ public class SigninActivity  extends AsyncTask{
                 HttpClient client = new DefaultHttpClient();
                 HttpGet request = new HttpGet();
                 request.setURI(new URI(link));
+
                 HttpResponse response = client.execute(request);
                 BufferedReader in = new BufferedReader(new
                         InputStreamReader(response.getEntity().getContent()));
@@ -109,6 +108,6 @@ public class SigninActivity  extends AsyncTask{
     @Override
     protected void onPostExecute(Object result){
         this.statusField.setText("Login Successful");
-        this.roleField.setText((String)result);
+        this.roleField.setText(result.toString());
     }
 }

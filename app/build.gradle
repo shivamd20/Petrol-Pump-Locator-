@@ -29,4 +29,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('I:/projects_android/Prayas/libs/apache-httpcomponents-httpclient.jar')
     compile files('I:/projects_android/Prayas/libs/apache-httpcomponents-httpcore.jar')
+    android {
+        useLibrary 'org.apache.http.legacy'
+    }
 }
