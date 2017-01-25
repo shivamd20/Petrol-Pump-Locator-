@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Prayas</string>
+    <string name="title_activity_signin">SigninActivity</string>
 </resources>
